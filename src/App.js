@@ -6,14 +6,36 @@ function App() {
   const [weight, setWeight] = useState(0);
   const [bottles, setBottles] = useState(0);
   const [time, setTime] = useState(0);
-  const [gender, setGender] = useState("gender");
+  const [gender, setGender] = useState("male");
+  const [result, setResult] = useState(0);
 
   // Functions
+  function handleSubmit(e) {
+    e.preventDefault();
+    let bloodAlcoholLevel = 0;
+    let litres = bottles * 0.33;
+    let grams = litres * 8 * 4.5;
+    let burning = weight / 10;
+    let gramsLeft = grams - (burning * time);
+
+    if (gender === "male") {
+      bloodAlcoholLevel = gramsLeft / (weight * 0.7);
+    } else {
+      bloodAlcoholLevel = gramsLeft / (weight * 0.6);
+    }
+
+    if (bloodAlcoholLevel < 0) {
+      bloodAlcoholLevel = 0;
+    }
+
+    setResult(bloodAlcoholLevel);
+
+  }
 
   // Printing the app
   return (
     <div className="container mt-5 mb-3">
-      <h1>BAC Calculator</h1>
+      <h1>Alcometer</h1>
       <span className="text-muted">Calculating blood alcohol level</span>
       <div className="mt-3 mb-3">
         <form onSubmit={handleSubmit}>
@@ -31,6 +53,11 @@ function App() {
               <option value="3">3</option>
               <option value="4">4</option>
               <option value="5">5</option>
+              <option value="6">6</option>
+              <option value="7">7</option>
+              <option value="8">8</option>
+              <option value="9">9</option>
+              <option value="10">10</option>
             </select>
             <div className="form-text">How many bottles (0.33 litres) you've consumed</div>
           </div>
@@ -43,13 +70,18 @@ function App() {
               <option value="3">3</option>
               <option value="4">4</option>
               <option value="5">5</option>
+              <option value="6">6</option>
+              <option value="7">7</option>
+              <option value="8">8</option>
+              <option value="9">9</option>
+              <option value="10">10</option>
             </select>
             <div className="form-text">How many hours it has been since your</div>
           </div>
           <div className="mb-3">
             <label className="form-label">Gender</label>
             <div class="form-check">
-              <input className="form-check-input" type="radio" name="gender" id="male" value="male" onChange={e => setGender(e.target.value)}></input>
+              <input className="form-check-input" type="radio" name="gender" id="male" value="male" onChange={e => setGender(e.target.value)} defaultChecked></input>
               <label className="form-label" for="male">Male</label>
             </div>
             <div class="form-check">
@@ -59,7 +91,7 @@ function App() {
           </div>
           <button className="btn btn-secondary">Calculate</button>
         </form>
-        <div className="alert">{result}</div>
+        <div className="alert mt-3">Your blood alcohol level is {result.toFixed(1)}</div>
       </div>
     </div>
   );
