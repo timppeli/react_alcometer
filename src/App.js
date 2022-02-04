@@ -28,10 +28,6 @@ function App() {
       bloodAlcoholLevel = 0;
     }
 
-    if (weight < 30) {
-      console.log("poop")
-    }
-
     setResult(bloodAlcoholLevel);
 
   }
