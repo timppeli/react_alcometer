@@ -76,7 +76,7 @@ function App() {
               <option value="9">9</option>
               <option value="10">10</option>
             </select>
-            <div className="form-text">How many hours it has been since your</div>
+            <div className="form-text">How many hours it has been since your first drink</div>
           </div>
           <div className="mb-3">
             <label className="form-label">Gender</label>
