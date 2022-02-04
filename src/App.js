@@ -89,7 +89,7 @@ function App() {
               <label className="form-label" htmlFor="female">Female</label>
             </div>
           </div>
-          <button className="btn btn-secondary">Calculate</button>
+          <button className="btn btn-primary">Calculate</button>
         </form>
         <div className="alert mt-3">Your blood alcohol level is {result.toFixed(1)}</div>
       </div>
