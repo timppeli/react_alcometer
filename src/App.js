@@ -28,6 +28,10 @@ function App() {
       bloodAlcoholLevel = 0;
     }
 
+    if (weight < 30) {
+      console.log("poop")
+    }
+
     setResult(bloodAlcoholLevel);
 
   }
@@ -47,7 +51,7 @@ function App() {
           <div className="mb-3">
             <label className="form-label">Bottles</label>
             <select className="form-select" name="bottles" value={bottles} onChange={e => setBottles(e.target.value)}>
-              <option selected value="0">0</option>
+              <option value="0">0</option>
               <option value="1">1</option>
               <option value="2">2</option>
               <option value="3">3</option>
@@ -64,7 +68,7 @@ function App() {
           <div className="mb-3">
             <label className="form-label">Time</label>
             <select className="form-select" name="time" value={time} onChange={e => setTime(e.target.value)}>
-              <option selected value="0">0</option>
+              <option value="0">0</option>
               <option value="1">1</option>
               <option value="2">2</option>
               <option value="3">3</option>
@@ -80,13 +84,13 @@ function App() {
           </div>
           <div className="mb-3">
             <label className="form-label">Gender</label>
-            <div class="form-check">
+            <div className="form-check">
               <input className="form-check-input" type="radio" name="gender" id="male" value="male" onChange={e => setGender(e.target.value)} defaultChecked></input>
-              <label className="form-label" for="male">Male</label>
+              <label className="form-label" htmlFor="male">Male</label>
             </div>
-            <div class="form-check">
+            <div className="form-check">
               <input className="form-check-input" type="radio" name="gender" id="female" value="female" onChange={e => setGender(e.target.value)}></input>
-              <label className="form-label" for="female">Female</label>
+              <label className="form-label" htmlFor="female">Female</label>
             </div>
           </div>
           <button className="btn btn-secondary">Calculate</button>
